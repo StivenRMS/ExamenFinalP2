@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <title>Mi primera pagina</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body style="background-color: #cccccc">
+        <h1 style="color: #ff6666 ">Pagina de Usuario</h1>
+        <a th:href="@{/agregar}">Agregar</a>
+        |
+        <a th:href="@{/inicio1}">Agregar Profesion</a>
+        <hr/>
+         <div th:if="${usuarios != null and !usuarios.empty}">
+
+        <br/>
+
+        <table border="10">
+            <tr>
+                <th>ID_USUARIO</th>
+                <th>ID_DEPTO</th>
+                <th>ID_PROFESION</th>
+                <th>NOMBRE</th>
+                <th>APELLIDO</th>
+                <th>CORREO_ELECTRONICO</th>
+                <th>TELEFONO</th>
+                <th>FECHA_NACIMIENTO</th>
+                <th>LONGITUD</th>
+                <th>LATITUD</th>
+                <th>FECHA_REGISTRO</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+
+            </tr>
+            <!-- vamos a poner la lineas hacemos iteracion -->
+            <tr th:each="usuarios : ${usuarios}">
+                <td th:text="${usuarios.id_usuario}" ></td>
+                <td th:text="${usuarios.id_depto}" ></td>
+                <td th:text="${usuarios.id_profesion}" ></td>
+                <td th:text="${usuarios.nombre}" ></td>
+                <td th:text="${usuarios.apellido}" ></td>
+                <td th:text="${usuarios.correo_electronico}" ></td>
+                <td th:text="${usuarios.telefono}" ></td>
+                <td th:text="${usuarios.fecha_nacimiento}" ></td> 
+                <td th:text="${usuarios.longitud}" ></td>
+                <td th:text="${usuarios.latitud}" ></td>
+                <td th:text="${usuarios.fecha_registro}" ></td>
+                <td><a th:href="@{/editar/} + ${usuarios.id_usuario}" th:text="Editar"/></td>
+                <td><a th:href="@{/eliminar/} + ${usuarios.id_usuario}" th:text="Eliminar"/></td>
+
+
+
+            </tr>
+        </table>
+         </div>
+        
+        <div th:if ="${usuarios ==null or usuarios.empty}">
+            no hay cuates.
+        </div>
+
+
+    </body>
+</html>

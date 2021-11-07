@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <title>Datos de la persona</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body style="background-color: #cccccc">
+       <a th:href="@{/inicio1}">Regresar</a>
+       
+        <form th:action="@{/guardar1}" method="post" th:object="${profesion}">
+            <input type="hidden" name="id_profesion" th:field="*{id_profesion}"/>
+            <hr/>
+            <br/>
+            <label for="descripcion_profesion">Descripcion de Profesion:</label>
+            <input type="text" name="descripcion_profesion" th:field="*{descripcion_profesion}"/>
+            <br/>
+            <br/>
+            <input type="submit" name="guardar1" value="Guardar" style="background-color:lightcoral"/>
+        </form>
+    </body>
+</html>
+

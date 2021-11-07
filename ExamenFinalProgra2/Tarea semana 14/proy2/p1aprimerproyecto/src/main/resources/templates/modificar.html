@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <title>Datos de la persona</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body style="background-color: #cccccc">
+        <a th:href="@{/}">Regresar</a>
+        <br/>
+        <hr/>
+        <form th:action="@{/guardar}" method="post" th:object="${usuario}">
+            <input type="hidden" name="id_usuario" th:field="*{id_usuario}"/>
+            <label for="id_depto">Departarmento:</label>
+             <select th:field="*{id_depto}">
+                 <option th:value=null th:text="Vacio"></option> 
+                <option th:value="'1'" th:text="Alta_Verapaz"></option>
+                <option th:value="'2'" th:text="Baja_Verapaz"></option>
+                <option th:value="'3'" th:text="Chimaltenango"></option>
+                <option th:value="'4'" th:text="Chiquimula"></option>
+                <option th:value="'5'" th:text="Escuintla"></option> 
+                <option th:value="'6'" th:text="Guatemala"></option>
+                <option th:value="'7'" th:text="Huehuetenango"></option>   
+                <option th:value="'8'" th:text="Izabal"></option>
+                <option th:value="'9'" th:text="Jalapa"></option>
+                <option th:value="'10'" th:text="Jutiapa"></option>
+                <option th:value="'11'" th:text="Petén"></option>
+                <option th:value="'12'" th:text="El_Progreso"></option>
+                <option th:value="'13'" th:text="Quetzaltenango"></option>
+                <option th:value="'14'" th:text="Quiché"></option>
+                <option th:value="'15'" th:text="Retalhuleu"></option>
+                <option th:value="'16'" th:text="San_Marcos"></option>
+                <option th:value="'17'" th:text="Izabal"></option>
+                <option th:value="'18'" th:text="Santa_Rosa"></option>
+                <option th:value="'19'" th:text="Sololá"></option>
+                <option th:value="'20'" th:text="Suchitepéquez"></option>
+                <option th:value="'21'" th:text="Totonicapán"></option>
+                <option th:value="'22'" th:text="Zacapa"></option>
+            </select>
+           
+             <br/>
+             <label for="id_profesion">Profesion:</label>
+             <select th:field="*{id_profesion}">
+                 <option th:value=null th:text="Vacio"></option>
+                <option th:value="'1'" th:text="Ingeniero"></option>
+            </select>
+            <br/>
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" th:field="*{nombre}"/>
+            <br/>
+            <label for="apellido">Apellido:</label>
+            <input type="text" name="apellido" th:field="*{apellido}"/>
+            <br/>
+            <label for="correo_electronico">Email:</label>
+            <input type="email" name="correo_electronico" th:field="*{correo_electronico}"/>
+            <br/>
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" name="telefono" th:field="*{telefono}"/>
+            <br/>
+            <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+            <input type="fechan" name="fecha_nacimiento" th:field="*{fecha_nacimiento}"/>
+            <br/>
+            <label for="longitud">longitud:</label>
+            <input type="longitud" name="longitud" th:field="*{longitud}"/>
+            <br/>
+            <label for="latitud">latitud:</label>
+            <input type="latitud" name="latitud" th:field="*{latitud}"/>
+            <br/>
+            <label for="fecha_registro">Fecha de Registro:</label>
+            <input type="fecha_registro" name="fecha_registro" th:field="*{fecha_registro}"/>
+            <br/>
+            <input type="submit" name="guardar" value="Guardar" style="background-color:lightcoral "/>
+        </form>
+    </body>
+</html>
